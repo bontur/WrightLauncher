@@ -19,7 +19,7 @@ namespace WrightLauncher
         private static DebugConsoleWindow? _instance;
         private readonly List<string> _logMessages = new();
         
-        private static readonly bool HIDE_DEBUG_CONSOLE = true;
+        private static readonly bool HIDE_DEBUG_CONSOLE = true; // change this to enable debug window
 
         public static DebugConsoleWindow Instance
         {
@@ -132,5 +132,6 @@ namespace WrightLauncher
         }
     }
 }
+
 
 
