@@ -1,0 +1,382 @@
+﻿<Window x:Class="WrightLauncher.Views.SkinSelectionModal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:converters="clr-namespace:WrightLauncher.Converters"
+        xmlns:localconv="clr-namespace:WrightLauncher.Converters"
+        Title="Skin Seç"
+        WindowState="Maximized"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ShowInTaskbar="False"
+        Topmost="True">
+    <Window.Resources>
+        <converters:InstalledSkinImageConverter x:Key="InstalledSkinImageConverter"/>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter"/>
+        <converters:InverseStringToVisibilityConverter x:Key="InverseStringToVisibilityConverter"/>
+        <converters:BuildedButNotCustomVisibilityConverter x:Key="BuildedButNotCustomVisibilityConverter"/>
+        <LinearGradientBrush x:Key="PrimaryGradient" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#0F0E17" Offset="0"/>
+            <GradientStop Color="#1A1625" Offset="0.5"/>
+            <GradientStop Color="#0F0E17" Offset="1"/>
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="TextBrush" Color="#F1F5F9"/>
+        <SolidColorBrush x:Key="TextSecondaryBrush" Color="#94A3B8"/>
+        <SolidColorBrush x:Key="AccentBrush" Color="#7C3AED"/>
+        <SolidColorBrush x:Key="CardBrush" Color="#1E1E2E"/>
+        <SolidColorBrush x:Key="SuccessBrush" Color="#38A169"/>
+    </Window.Resources>
+    <Grid>
+        <Rectangle Fill="#80000000" 
+                   Opacity="0.7"/>
+        <Border Background="{StaticResource PrimaryGradient}" 
+                CornerRadius="12"
+                BorderThickness="1"
+                BorderBrush="{StaticResource AccentBrush}"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="800"
+                Height="600">
+            <Border.Effect>
+                <DropShadowEffect Color="#000000" BlurRadius="20" Opacity="0.5" ShadowDepth="5"/>
+            </Border.Effect>
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="0,0,0,15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0"
+                               Text="{localconv:Loc SkinSelectionTitle}"
+                               FontSize="24"
+                               FontWeight="Bold"
+                               Foreground="{StaticResource TextBrush}"
+                               VerticalAlignment="Center"/>
+                    <Button x:Name="CloseButton"
+                            Grid.Column="1"
+                            Content="✕"
+                            Width="32" Height="32"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Foreground="{StaticResource TextSecondaryBrush}"
+                            FontSize="18"
+                            Cursor="Hand"
+                            Click="CloseButton_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}"
+                                                    CornerRadius="16">
+                                                <ContentPresenter HorizontalAlignment="Center" 
+                                                                VerticalAlignment="Center"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#E53E3E"/>
+                                                    <Setter Property="Foreground" Value="White"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Grid>
+                <Grid Grid.Row="1" Margin="0,0,0,15">
+                    <Border Background="{StaticResource CardBrush}"
+                            CornerRadius="8"
+                            BorderThickness="1"
+                            BorderBrush="#333333">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0"
+                                       Text="🔍"
+                                       FontSize="16"
+                                       Foreground="{StaticResource TextSecondaryBrush}"
+                                       VerticalAlignment="Center"
+                                       Margin="12,0,8,0"/>
+                            <TextBox x:Name="SearchTextBox"
+                                     Grid.Column="1"
+                                     Background="Transparent"
+                                     BorderThickness="0"
+                                     Foreground="{StaticResource TextBrush}"
+                                     FontSize="14"
+                                     VerticalAlignment="Center"
+                                     Padding="0,8"
+                                     TextChanged="SearchTextBox_TextChanged">
+                                <TextBox.Style>
+                                    <Style TargetType="TextBox">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="TextBox">
+                                                    <Grid>
+                                                        <ScrollViewer x:Name="PART_ContentHost"
+                                                                      Focusable="False"
+                                                                      HorizontalScrollBarVisibility="Hidden"
+                                                                      VerticalScrollBarVisibility="Hidden"/>
+                                                        <TextBlock Text="{localconv:Loc searchInstalled}"
+                                                                   Foreground="{StaticResource TextSecondaryBrush}"
+                                                                   FontSize="14"
+                                                                   VerticalAlignment="Center"
+                                                                   IsHitTestVisible="False"
+                                                                   Visibility="{Binding Text, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource StringToVisibilityConverter}}"/>
+                                                    </Grid>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                            <Button x:Name="ClearSearchButton"
+                                    Grid.Column="2"
+                                    Content="✕"
+                                    Width="24" Height="24"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Foreground="{StaticResource TextSecondaryBrush}"
+                                    FontSize="12"
+                                    Cursor="Hand"
+                                    Margin="8,0,12,0"
+                                    Click="ClearSearchButton_Click"
+                                    Visibility="{Binding Text, ElementName=SearchTextBox, Converter={StaticResource InverseStringToVisibilityConverter}}">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border Background="{TemplateBinding Background}"
+                                                            CornerRadius="12">
+                                                        <ContentPresenter HorizontalAlignment="Center" 
+                                                                        VerticalAlignment="Center"/>
+                                                    </Border>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#E53E3E"/>
+                                                            <Setter Property="Foreground" Value="White"/>
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </Grid>
+                    </Border>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid x:Name="LoadingPanel" Visibility="Visible">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="{localconv:Loc SkinSelectionLoading}"
+                                       FontSize="16"
+                                       Foreground="{StaticResource TextSecondaryBrush}"
+                                       HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+                    <ScrollViewer x:Name="SkinListPanel" 
+                                  Visibility="Collapsed"
+                                  VerticalScrollBarVisibility="Hidden"
+                                  HorizontalScrollBarVisibility="Disabled">
+                        <ItemsControl x:Name="InstalledSkinsList" 
+                                      ItemsSource="{Binding InstalledSkins}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Background="{StaticResource CardBrush}"
+                                            CornerRadius="8"
+                                            Margin="8"
+                                            Padding="12"
+                                            Width="200"
+                                            MinHeight="120"
+                                            Cursor="Hand"
+                                            MouseLeftButtonUp="SkinItem_Click">
+                                        <Border.Style>
+                                            <Style TargetType="Border">
+                                                <Setter Property="BorderThickness" Value="1"/>
+                                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                                                        <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+                                                        <Setter Property="BorderThickness" Value="2"/>
+                                                    </DataTrigger>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+                                                        <Setter Property="Opacity" Value="0.8"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Border.Style>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="60"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Border Grid.Row="0" 
+                                                    CornerRadius="4"
+                                                    ClipToBounds="True"
+                                                    Background="#FF444444">
+                                                <Grid>
+                                                    <TextBlock Text="{Binding ImageCard}" 
+                                                               FontSize="8" 
+                                                               Foreground="Yellow" 
+                                                               VerticalAlignment="Top"
+                                                               TextWrapping="Wrap" 
+                                                               Margin="2"/>
+                                                    <Image Stretch="UniformToFill"
+                                                           Source="{Binding ImageCard}"/>
+                                                </Grid>
+                                            </Border>
+                                            <StackPanel Grid.Row="1" 
+                                                        Margin="0,8,0,0">
+                                                <TextBlock Text="{Binding Name}"
+                                                           FontSize="14"
+                                                           FontWeight="SemiBold"
+                                                           Foreground="{StaticResource TextBrush}"
+                                                           TextWrapping="Wrap"
+                                                           MaxHeight="40"/>
+                                                <TextBlock Text="{Binding Champion}"
+                                                           FontSize="12"
+                                                           Foreground="{StaticResource TextSecondaryBrush}"
+                                                           Margin="0,4,0,0"/>
+                                                <StackPanel Orientation="Horizontal" 
+                                                            Margin="0,4,0,0">
+                                                    <Border Background="{StaticResource AccentBrush}"
+                                                            CornerRadius="2"
+                                                            Padding="4,2"
+                                                            Margin="0,0,4,0"
+                                                            Visibility="{Binding IsCustom, Converter={StaticResource BoolToVisibilityConverter}}">
+                                                        <TextBlock Text="Custom" 
+                                                                   FontSize="10"
+                                                                   Foreground="White"/>
+                                                    </Border>
+                                                    <Border Background="{StaticResource SuccessBrush}"
+                                                            CornerRadius="2"
+                                                            Padding="4,2">
+                                                        <Border.Visibility>
+                                                            <MultiBinding Converter="{StaticResource BuildedButNotCustomVisibilityConverter}">
+                                                                <Binding Path="IsBuilded"/>
+                                                                <Binding Path="IsCustom"/>
+                                                            </MultiBinding>
+                                                        </Border.Visibility>
+                                                        <TextBlock Text="Builded" 
+                                                                   FontSize="10"
+                                                                   Foreground="White"/>
+                                                    </Border>
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
+                <StackPanel Grid.Row="3" 
+                            Orientation="Horizontal" 
+                            HorizontalAlignment="Right"
+                            Margin="0,20,0,0">
+                    <Button x:Name="CancelButton"
+                            Content="{localconv:Loc SkinSelectionCancelButton}"
+                            MinWidth="80"
+                            Height="35"
+                            Background="{StaticResource CardBrush}"
+                            BorderBrush="{StaticResource TextSecondaryBrush}"
+                            BorderThickness="1"
+                            Foreground="{StaticResource TextBrush}"
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            Margin="0,0,10,0"
+                            Cursor="Hand"
+                            Click="CancelButton_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}"
+                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    CornerRadius="6"
+                                                    Padding="12,8">
+                                                <ContentPresenter HorizontalAlignment="Center" 
+                                                                VerticalAlignment="Center"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="{StaticResource TextSecondaryBrush}"/>
+                                                    <Setter Property="Foreground" Value="White"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button x:Name="AddSelectedButton"
+                            Content="{localconv:Loc SkinSelectionAddButton}"
+                            MinWidth="120"
+                            Height="35"
+                            Background="{StaticResource AccentBrush}"
+                            BorderThickness="0"
+                            Foreground="White"
+                            FontSize="13"
+                            FontWeight="SemiBold"
+                            Cursor="Hand"
+                            Click="AddSelectedButton_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}"
+                                                    CornerRadius="6"
+                                                    Padding="12,8">
+                                                <ContentPresenter HorizontalAlignment="Center" 
+                                                                VerticalAlignment="Center"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#8B5CF6"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
+
+
