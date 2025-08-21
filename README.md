@@ -24,7 +24,7 @@
 ### 🎯 **Core Functionality**
 - **🎨 Custom Skin Management** - Install and manage custom League of Legends skins with one-click deployment
 - **🔄 Auto-Injection** - Automatic skin injection when League of Legends starts
-- **📦 WAD File Support** - Full support for WAD archives and mod files
+- **📦 Fantome File Support** - Full support for .fantome mod files
 - **🌍 Multi-Language Support** - Available in multiple languages with dynamic localization
 
 ### 👥 **Social & Multiplayer**
@@ -39,8 +39,41 @@
 - **🎮 Lobby Invitations** - Send and receive lobby invites to/from friends
 - **👑 Lobby Management** - Host lobbies with member management and kick functionality
 - **🔍 Skin Discovery** - Browse and discover new skins from the community
-- **📊 Performance Optimized** - GPU-accelerated UI with efficient memory management
 - **🛡️ Safe & Secure** - Client-side only modifications, no game file tampering
+
+---
+
+## � Create & Share Your Own Skins
+
+**Want to contribute to the community?** WrightLauncher isn't just about downloading skins—you can also create and share your own masterpieces!
+
+### **🌟 WrightSkins Dashboard**
+Visit **[WrightSkins.com/dashboard](https://wrightskins.com/dashboard)** to:
+
+- **📤 Upload Your Creations** - Submit your custom skins to share with thousands of players
+- **🖼️ Showcase Your Work** - Display your artistic talent to the League of Legends community  
+- **⭐ Get Recognition** - Receive likes, comments, and feedback from other skin creators
+- **🔥 Trending Skins** - See which of your skins are becoming popular
+- **📊 Track Statistics** - Monitor downloads and user engagement for your submissions
+
+### **✨ Why Share Your Skins?**
+- **🌍 Global Reach** - Your skins will be available to players worldwide through WrightLauncher
+- **👥 Community Impact** - Help other players enjoy unique, creative visual experiences
+- **🏆 Creator Recognition** - Build your reputation as a talented skin artist
+- **💡 Inspiration Exchange** - Get inspired by other creators and inspire them with your work
+
+Ready to become a part of the creative community? **[Start uploading now!](https://wrightskins.com/dashboard)**
+
+---
+
+## �🎮 How It Works
+
+1. **🔐 Authentication** - Login with Discord for lobby features (completely optional)
+2. **🏠 Create/Join Lobbies** - Host your own lobby or join friends' lobbies
+3. **🎨 Select Skins** - Browse and choose from thousands of custom skins
+4. **📤 Share Instantly** - Your selected skins are automatically shared with lobby members
+5. **⚡ Auto-Apply** - Skins are injected when you start League of Legends
+6. **👥 Play Together** - Everyone in the lobby sees the shared skins in-game
 
 ---
 
@@ -120,40 +153,6 @@ WrightLauncher leverages several powerful open-source projects and APIs:
 - **Storage:** 2GB free space
 - **Network:** Internet connection for skin downloads and social features
 - **Game:** League of Legends installed
-
----
-
-## � Create & Share Your Own Skins
-
-**Want to contribute to the community?** WrightLauncher isn't just about downloading skins—you can also create and share your own masterpieces!
-
-### **🌟 WrightSkins Dashboard**
-Visit **[WrightSkins.com/dashboard](https://wrightskins.com/dashboard)** to:
-
-- **📤 Upload Your Creations** - Submit your custom skins to share with thousands of players
-- **🖼️ Showcase Your Work** - Display your artistic talent to the League of Legends community  
-- **⭐ Get Recognition** - Receive likes, comments, and feedback from other skin creators
-- **🔥 Trending Skins** - See which of your skins are becoming popular
-- **📊 Track Statistics** - Monitor downloads and user engagement for your submissions
-
-### **✨ Why Share Your Skins?**
-- **🌍 Global Reach** - Your skins will be available to players worldwide through WrightLauncher
-- **👥 Community Impact** - Help other players enjoy unique, creative visual experiences
-- **🏆 Creator Recognition** - Build your reputation as a talented skin artist
-- **💡 Inspiration Exchange** - Get inspired by other creators and inspire them with your work
-
-Ready to become a part of the creative community? **[Start uploading now!](https://wrightskins.com/dashboard)**
-
----
-
-## �🎮 How It Works
-
-1. **🔐 Authentication** - Login with Discord for lobby features (completely optional)
-2. **🏠 Create/Join Lobbies** - Host your own lobby or join friends' lobbies
-3. **🎨 Select Skins** - Browse and choose from thousands of custom skins
-4. **📤 Share Instantly** - Your selected skins are automatically shared with lobby members
-5. **⚡ Auto-Apply** - Skins are injected when you start League of Legends
-6. **👥 Play Together** - Everyone in the lobby sees the shared skins in-game
 
 ---
 
