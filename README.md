@@ -77,14 +77,10 @@ Ready to become a part of the creative community? **[Start uploading now!](https
 
 ---
 
-## Roadmap & Planned Features
+## Roadmap & Planned Features (TODO)
 
 <div align="center">
   <table>
-    <tr>
-      <td><strong>🔧 Core Improvements</strong></td>
-      <td><strong>🚀 Advanced Features</strong></td>
-    </tr>
     <tr>
       <td>
         <ul>
