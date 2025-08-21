@@ -43,7 +43,7 @@
 
 ---
 
-## � Create & Share Your Own Skins
+## Create & Share Your Own Skins
 
 **Want to contribute to the community?** WrightLauncher isn't just about downloading skins—you can also create and share your own masterpieces!
 
@@ -66,7 +66,7 @@ Ready to become a part of the creative community? **[Start uploading now!](https
 
 ---
 
-## �🎮 How It Works
+## 🎮 How It Works
 
 1. **🔐 Authentication** - Login with Discord for lobby features (completely optional)
 2. **🏠 Create/Join Lobbies** - Host your own lobby or join friends' lobbies
@@ -77,7 +77,7 @@ Ready to become a part of the creative community? **[Start uploading now!](https
 
 ---
 
-## �️ Roadmap & Planned Features
+## Roadmap & Planned Features
 
 <div align="center">
   <table>
@@ -117,7 +117,7 @@ Ready to become a part of the creative community? **[Start uploading now!](https
 
 ---
 
-## �🛠️ Built With
+## 🛠️ Built With
 
 WrightLauncher leverages several powerful open-source projects and APIs:
 
