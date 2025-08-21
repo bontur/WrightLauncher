@@ -1,0 +1,10 @@
+{
+  "UserName": "Summoner",
+  "AvatarPath": "/Resources/Images/default_avatar.png",
+  "GamePath": "",
+  "AutoLaunch": false,
+  "Theme": "Dark",
+  "EnableAnimations": true,
+  "MasterVolume": 0.8,
+  "Language": "tr-TR"
+}

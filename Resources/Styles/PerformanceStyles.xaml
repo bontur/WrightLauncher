@@ -1,0 +1,69 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="LightweightCardShadow" TargetType="Border">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#10000000" Offset="0"/>
+                    <GradientStop Color="#20000000" Offset="0.5"/>
+                    <GradientStop Color="#10000000" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="Margin" Value="2"/>
+    </Style>
+    <Style x:Key="LightweightGlow" TargetType="Border">
+        <Setter Property="Background">
+            <Setter.Value>
+                <RadialGradientBrush>
+                    <GradientStop Color="#407C3AED" Offset="0"/>
+                    <GradientStop Color="#207C3AED" Offset="0.5"/>
+                    <GradientStop Color="#007C3AED" Offset="1"/>
+                </RadialGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="CornerRadius" Value="8"/>
+    </Style>
+    <Style x:Key="PerformanceButton" TargetType="Button">
+        <Setter Property="Background" Value="#1C1B26"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="15,8"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="6"
+                            RenderOptions.CachingHint="Cache">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#252030"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="#7C3AED"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="OptimizedImage" TargetType="Image">
+        <Setter Property="RenderOptions.BitmapScalingMode" Value="LowQuality"/>
+        <Setter Property="RenderOptions.CachingHint" Value="Cache"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+    </Style>
+    <Storyboard x:Key="FastFadeIn">
+        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                        From="0" To="1" Duration="0:0:0.15"/>
+    </Storyboard>
+    <Storyboard x:Key="FastFadeOut">
+        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                        From="1" To="0" Duration="0:0:0.15"/>
+    </Storyboard>
+</ResourceDictionary>
+
